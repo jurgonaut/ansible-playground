@@ -1,0 +1,22 @@
+---
+- name: print varaibles
+  ansible.builtin.debug:
+    msg: "{{ item.key }} : {{ item.value }}"
+  loop: "{{ env_params | dict2items }}"
+
+- name: write vars to file
+  ansible.builtin.lineinfile:
+    path: "/tmp/test.txt"
+    line: "{{ item.NAME }}, {{ item.VALUE }}"
+    insertafter: "EOF"
+    create: yes
+  loop: "{{ env_params | dict2items(key_name='NAME', value_name='VALUE') }}"
+
+- name: vars as JSON
+  set_fact:
+    dict_json: "{{ env_params | dict2items(key_name='NAME', value_name='VALUE') }}"
+
+- name: write vars to JSON file
+  ansible.builtin.copy:
+    dest: "/tmp/test.json"
+    content: "{{ dict_json }}"

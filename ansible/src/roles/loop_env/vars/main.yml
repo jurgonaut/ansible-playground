@@ -1,0 +1,5 @@
+---
+# vars file for loop-env
+env_params:
+  host: my-server
+  user: user
