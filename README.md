@@ -9,9 +9,9 @@ Start the docker containers with:
 MY_UID="$(id -u)" MY_GID="$(id -g)" docker compose up
 ```
 
-Example how to create a tempalte for a fole:
+Example how to create a tempalte for a role:
 ```bash
-docker compose exec ansible ansible-galaxy init <role name>
+docker compose exec ansible ansible-galaxy init --init-path=./roles <role name>
 ```
 
 Example how to run a playbook:
