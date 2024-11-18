@@ -7,6 +7,8 @@ services:
     hostname: ansible
     volumes:
       - ./ansible/src:/etc/ansible
+      - ./ansible/id_rsa:/home/ubuntu/.ssh/id_rsa
+      - ./ansible/id_rsa.pub:/home/ubuntu/.ssh/id_rsa.pub
   playground:
     build:
       context: playground
