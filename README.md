@@ -11,7 +11,7 @@ MY_UID="$(id -u)" MY_GID="$(id -g)" docker compose up
 
 Example how to create a tempalte for a fole:
 ```bash
-ansible-galaxy init <role name>
+docker compose exec ansible ansible-galaxy init <role name>
 ```
 
 Example how to run a playbook:
