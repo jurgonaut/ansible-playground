@@ -1,0 +1,13 @@
+services:
+  ansible:
+    build: 
+      context: ansible
+    user: ${MY_UID}:${MY_GID}
+    command: "sleep infinity"
+    hostname: ansible
+    volumes:
+      - ./ansible/src:/etc/ansible
+  playground:
+    build:
+      context: playground
+    hostname: playground
